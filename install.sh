@@ -5,11 +5,12 @@ if [[ $UID != 0 ]] ; then
 
     exit 1
 fi
+echo "downloading and installing lastest release"
 wget -O dts.tgz https://github.com/doryosef/dts/releases/latest/download/dts.tgz && \
 mkdir -p /opt/dts && \
 tar -xzvf dts.tgz -C /opt/dts && \
 chown -R pi:pi /opt/dts
-chmod u+x dts scripts/* && \
+chmod u+x /opt/dts/dts /opt/dts/scripts/* && \
 mv -v /opt/dts/dts.service /etc/systemd/system/
 
 echo " -------------------------
