@@ -5,7 +5,7 @@ if [[ $UID != 0 ]] ; then
 
     exit 1
 fi
-#download dts.tgz && 
+wget -O dts.tgz https://github.com/doryosef/dts/releases/latest/download/dts.tgz && \
 mkdir -p /opt/dts && \
 tar -xzvf dts.tgz -C /opt/dts && \
 chown -R pi:pi /opt/dts

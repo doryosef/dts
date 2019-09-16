@@ -38,7 +38,7 @@ The second part relay on windows machine with:
 ---
 Connect to your pi zero using ssh
 and run installtion script
-`sudo wget -O - http://github/PATH_TO/install.sh | sh`
+`sudo wget -O - https://github.com/doryosef/dts/blob/master/install.sh | sh`
 
 Edit the configuration file `/opt/dts/conf.ini`.
 
