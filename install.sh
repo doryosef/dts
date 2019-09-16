@@ -9,9 +9,9 @@ echo "downloading and installing lastest release"
 wget -O dts.tgz https://github.com/doryosef/dts/releases/latest/download/dts.tgz && \
 mkdir -vp /opt/dts && \
 tar -xzvf dts.tgz -C /opt/dts && \
-sudo chown -vR pi:pi /opt/dts
-sudo chmod -v u+x /opt/dts/dts /opt/dts/scripts/* && \
-sudo mv -v /opt/dts/dts.service /etc/systemd/system/
+chown -vR pi:pi /opt/dts
+chmod -v u+x /opt/dts/dts /opt/dts/scripts/* && \
+mv -v /opt/dts/dts.service /etc/systemd/system/
 
 echo " -------------------------
 
