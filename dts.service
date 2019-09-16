@@ -1,0 +1,14 @@
+[Unit]
+Description=duet wifi timelapse server
+
+[Service]
+User=pi
+WorkingDirectory=/opt/dts
+ExecStart=/opt/dts/dts
+SuccessExitStatus=143
+TimeoutStopSec=10
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

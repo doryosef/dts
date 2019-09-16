@@ -1,0 +1,5 @@
+vendor/
+glide.lock
+test.go
+dts.log
+*.tgz
