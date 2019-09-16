@@ -1,3 +1,5 @@
+Still under development
+
 ##### Duet Timelapse Service
 ---
 As 3dprinter owner with duetWifi board I want to create awesome timelapse
@@ -73,5 +75,5 @@ Then execute command
 	$ ssh-copy-id pi@remote_host
 It will try to connect and will automatically copy the public key to the machine
 Now try to login
-	$ ssh username@remote_host
+	$ ssh pi@remote_host
 ```
