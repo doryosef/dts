@@ -1,32 +1,41 @@
-Still under development
-
 ##### Duet Timelapse Service
 ---
 As 3dprinter owner with duetWifi board I want to create awesome timelapse
 
 ### What is it?
 ---
-It's small service write in go that listen to telnet and execute command and also can serve latest image
+It's small service write in go that: 
+listen to telnet and execute command.
+
+It will also serve the last image taken.
 
 ### What I need?
 ---
 - DuetWifi board with telnet open
+
 `M586 P2 S1   ; Enable Telnet`
-- Rasberry pi zero
+- Rasberry pi zero with camera configure
 - Pi camera
 - Genrated gcode file with:
   - "print start" command sent on telnet
+  
     `M118 P4 S"print start"` 
-  this will execute scripts/print_start.sh
-  create timelapse folder & delete old timelapse files 
+	
+  this will execute `scripts/print_start.sh` create timelapse folder & delete old timelapse files
 
    - On layer change
+   
     `M118 P4 S"layer changed [layer_num]"`
-    scripts/snapshot.sh
+	
+    `scripts/snapshot.sh`
     taking image & updating latest image to serve
 
    - Print finish 
+   
    `M118 P4 S"print finish"` 
+   
+   `scripts/print_finish.sh`
+   
     create tar gzip from timelapse folder with timestamp
 
 ##### Creating video from timelapse folder
@@ -78,3 +87,13 @@ It will try to connect and will automatically copy the public key to the machine
 Now try to login
 	$ ssh pi@remote_host
 ```
+
+##### Add commands
+Add to `conf.ini` under `[commands]` section your own command
+
+##### work with usb camera
+Change `scripts/snapshot.sh` from `raspistill` to `fswebcam`
+
+##### clear the log file
+send
+`M118 P4 S"clear log"`
