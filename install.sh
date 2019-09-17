@@ -11,7 +11,8 @@ mkdir -vp /opt/dts && \
 tar -xzvf dts.tgz -C /opt/dts && \
 chown -vR pi:pi /opt/dts
 chmod -v u+x /opt/dts/dts /opt/dts/scripts/* && \
-mv -v /opt/dts/dts.service /etc/systemd/system/
+mv -v /opt/dts/dts.service /etc/systemd/system/ && \
+rm -f dts.tgz
 
 echo " -------------------------
 
