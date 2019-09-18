@@ -25,12 +25,16 @@ host=0pi.lan
 ############# main #############
 downloadFromPi $host
 
-# extract from tgz
+# extract from tgz 
 for f in timelapse_*.tgz
-  do 
-   time_stamp=${f:10:-4}
-   temp_dir=temp_$time_stamp
-   mkdir $temp_dir
-   tar -xzvf $f -C $temp_dir
-   createMovie $temp_dir $time_stamp
+ do 
+ if [ ! -f $f ]; then
+   continue
+ fi
+ echo "-=-=-=-=-=- $f -=-=-=-=-=-"
+ time_stamp=${f:10:-4}
+ temp_dir=temp_$time_stamp
+ mkdir $temp_dir
+ tar -xzvf $f -C $temp_dir
+ createMovie $temp_dir $time_stamp
 done
